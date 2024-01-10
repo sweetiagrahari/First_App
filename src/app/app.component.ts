@@ -6,13 +6,17 @@ import { StudentListComponent } from "./student-list/student-list.component";
 import { ClassListComponent } from "./class-list/class-list.component";
 import { SchoolListComponent } from "./school-list/school-list.component";
 import { HeaderComponent } from "./header/header.component";
+import { ReuseableComponentComponent } from "./reuseable-component/reuseable-component.component";
+import { ChildComponent } from "./child/child.component";
+import{ FormsModule} from '@angular/forms';
+import { UsdInrPipe } from "./pipes/usd-inr.pipe";
 
 @Component({
     selector: 'app-root',
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
-    imports: [CommonModule, RouterOutlet, UserListComponent, StudentListComponent, ClassListComponent, SchoolListComponent, HeaderComponent]
+    imports: [CommonModule, RouterOutlet, UserListComponent, StudentListComponent, ClassListComponent, SchoolListComponent, HeaderComponent, ReuseableComponentComponent, ChildComponent, FormsModule, UsdInrPipe]
 })
 export class AppComponent {
   title = 'First_App';
@@ -60,5 +64,37 @@ display=true
   {
    this.display
   }
+  data=10;
+  updateChild(){
+    this.data=Math.floor(Math.random()*100)
+  }
+
+  
+  userDetails=[
+  { name:'Sweeti Agarahari',email:'sweeti@gmail.com'},
+  { name:'Nitu Yadav',email:'nitu@gmail.com'},
+  { name:'sarvesh',email:'sarvesh@gmail.com'},
+  { name:'Om',email:'om@gmail.com'},
+
+  ]
+  updateData(item:string)
+  {
+    console.warn();
+  }
+   
+  namme:any;
+  getVal(item:any){
+    console.warn(item);
+  }
+
+  capString(item:string){
+    return item.toUpperCase();
+  }
+
+today=Date();
+user={
+  name:'sweeti',
+  age:'24'
+}
 
 }

@@ -1,6 +1,7 @@
 <app-header></app-header>
 <h1>Hello Angular {{title}}</h1>
-<app-user-list></app-user-list>
+<app-user-list [item]="data"></app-user-list>
+<button (click)="updateChild()">Update Child Component</button>
 <app-student-list></app-student-list>
 <app-class-list></app-class-list>
 <app-school-list></app-school-list>
@@ -58,3 +59,39 @@
 <br><br>
 <h2 *ngIf="display">Heading Tag</h2>
 <button (click)="toggle">Toggle</button>
+
+<br><br>
+
+<ul *ngFor="let user of userDetails">
+    <app-reuseable-component [item]="user"></app-reuseable-component>
+</ul>
+
+
+<app-child (updateDataEvent)="updateData($event)"></app-child><br>
+<h1>Two Way Binding</h1>
+
+<input type="text" [(ngModel)]="namme">
+<h2>{{namme}}</h2><br>
+<h1>Template Referenc Variable </h1>
+<input type="text" #ref name="user" placeholder="Enter YOUR NAME">
+<button (click)="getVal(ref.value)">Call fUNCTION</button>
+<button (click)="getVal(ref)">Call Input</button>
+<button (click)="getVal(ref.placeholder)">Call Placeholder</button><br>
+<h2>pipes</h2>
+<h1>{{title|uppercase}}</h1>
+<h3>without Pipe</h3>
+<h1>{{capString(title)}}</h1>
+<h1>{{title|lowercase}}</h1>
+<h1>{{title}}</h1><h1>{{today}}</h1>
+<h1>{{today|date}}</h1>
+<h1>{{today|date:'fullDate'}}</h1>
+<h1>{{title|slice:3:6 |uppercase}}</h1>
+<h1>{{user|json}}</h1>
+<h2>Number</h2>
+<h2>{{2000.3000}}</h2>
+<h2>{{00002000.3000 |number:'2.2-3'}}</h2>
+<h2>{{20|currency:'USD'}}</h2>
+<h2>{{20|currency:'GBP'}}</h2>
+<h2>{{20|currency:'INR'}}</h2>
+<h2>{{"how are you"|titlecase}}</h2>
+<h2>{{20|usdInr:72}}</h2>
