@@ -10,13 +10,14 @@ import { ReuseableComponentComponent } from "./reuseable-component/reuseable-com
 import { ChildComponent } from "./child/child.component";
 import{ FormsModule} from '@angular/forms';
 import { UsdInrPipe } from "./pipes/usd-inr.pipe";
+import { LoginformComponent } from "./loginform/loginform.component";
 
 @Component({
     selector: 'app-root',
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
-    imports: [CommonModule, RouterOutlet, UserListComponent, StudentListComponent, ClassListComponent, SchoolListComponent, HeaderComponent, ReuseableComponentComponent, ChildComponent, FormsModule, UsdInrPipe]
+    imports: [CommonModule, RouterOutlet, UserListComponent, StudentListComponent, ClassListComponent, SchoolListComponent, HeaderComponent, ReuseableComponentComponent, ChildComponent, FormsModule, UsdInrPipe, LoginformComponent]
 })
 export class AppComponent {
   title = 'First_App';

@@ -1,0 +1,11 @@
+<h1>Login (Template Driven) </h1>
+<form #loginForm="ngForm" (ngSubmit)=userLogin(loginForm.value)> 
+                                                                      <!-- for getting all field in console replace .value with controls -->
+    <input type="text" placeholder="Enter Your Name" name="name" ngModel>
+    <br><br>
+    <input type="password" placeholder="Enter Your Password" name="password" ngModel>
+   <br><br>
+   <button>Login</button>
+</form>
+<br><br>
+<button (click)=userLogin(loginForm.value)>Out side Login</button>
