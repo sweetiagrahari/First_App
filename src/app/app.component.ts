@@ -11,13 +11,15 @@ import { ChildComponent } from "./child/child.component";
 import{ FormsModule} from '@angular/forms';
 import { UsdInrPipe } from "./pipes/usd-inr.pipe";
 import { LoginformComponent } from "./loginform/loginform.component";
+import {UserdataService} from "./services/userdata.service";
+import { FooterComponent } from "./footer/footer.component";
 
 @Component({
     selector: 'app-root',
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
-    imports: [CommonModule, RouterOutlet, UserListComponent, StudentListComponent, ClassListComponent, SchoolListComponent, HeaderComponent, ReuseableComponentComponent, ChildComponent, FormsModule, UsdInrPipe, LoginformComponent]
+    imports: [CommonModule, RouterOutlet, UserListComponent, StudentListComponent, ClassListComponent, SchoolListComponent, HeaderComponent, ReuseableComponentComponent, ChildComponent, FormsModule, UsdInrPipe, LoginformComponent,FooterComponent]
 })
 export class AppComponent {
   title = 'First_App';
@@ -97,5 +99,15 @@ user={
   name:'sweeti',
   age:'24'
 }
+// Services
+users:any;
+constructor(private userdata:UserdataService){
+  console.warn("userdata",userdata.users());
+  this.users=userdata.users();
+}
 
 }
+
+
+
+
